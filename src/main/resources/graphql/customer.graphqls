@@ -1,0 +1,14 @@
+type CustomerResponse {
+  idCustomer: ID!
+  name: String!
+  email: String!
+  phone: String!
+  address: String
+}
+
+input CustomerRequest {
+  name: String!
+  email: String!
+  phone: String!
+  address: String
+}

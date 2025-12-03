@@ -1,0 +1,10 @@
+type PaymentMethodResponse {
+  idMethod: ID!
+  methodName: String!
+  description: String
+}
+
+input PaymentMethodRequest {
+  methodName: String!
+  description: String
+}

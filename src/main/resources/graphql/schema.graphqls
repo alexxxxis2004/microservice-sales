@@ -1,0 +1,24 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  getAllCustomers: [CustomerResponse]
+  findCustomersByName(name: String!): [CustomerResponse]
+
+  listPaymentMethods: [PaymentMethodResponse]
+
+  getSaleById(idSale: Int!): SaleResponse
+
+}
+
+type Mutation {
+  registerCustomer(request: CustomerRequest): CustomerResponse
+  updateCustomer(idCustomer: Int!, request: CustomerRequest): CustomerResponse
+
+  registerPaymentMethod(data: PaymentMethodRequest): PaymentMethodResponse
+
+  registerSale(data: SaleRequest): SaleResponse
+
+}

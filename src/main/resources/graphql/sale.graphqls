@@ -1,0 +1,17 @@
+type SaleResponse {
+  idSale: ID!
+  idCustomer: Int!
+  customerName: String
+  idMethod: Int!
+  methodName: String
+  saleDate: String!
+  totalAmount: Float!
+}
+
+input SaleRequest {
+  idCustomer: Int!
+  idMethod: Int!
+  saleDate: String!
+  totalAmount: Float!
+}
+
