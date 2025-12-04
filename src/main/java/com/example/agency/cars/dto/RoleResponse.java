@@ -7,5 +7,5 @@ import lombok.Value;
 @Builder
 public class RoleResponse {
     private Integer idRole;
-    private String description;
+    private String rolename;
 }

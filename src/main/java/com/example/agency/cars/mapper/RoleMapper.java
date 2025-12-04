@@ -9,7 +9,7 @@ public class RoleMapper {
     public RoleResponse toResponse(Role role) {
         return RoleResponse.builder()
                 .idRole(role.getIdRole())
-                .description(role.getDescription())
+                .rolename(role.getRolename())
                 .build();
     }
 }

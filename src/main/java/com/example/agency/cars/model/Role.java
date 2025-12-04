@@ -14,11 +14,11 @@ public class Role implements GrantedAuthority {
     @Column(name = "id_role", nullable = false)
     private Integer idRole;
 
-    @Column(name = "description", nullable = false, unique = true, length = 100)
-    private String description;
+    @Column(name = "role_name", nullable = false, unique = true, length = 100)
+    private String rolename;
 
     @Override
     public String getAuthority() {
-        return description;
+        return rolename;
     }
 }

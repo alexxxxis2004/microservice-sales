@@ -23,4 +23,8 @@ public class SaleRequest {
     @NotNull(message = "The total amount is required")
     @DecimalMin(value = "0.0", inclusive = false, message = "The total amount must be greater than zero")
     private Double totalAmount;
+
+     @NotNull(message = "The payment method ID is required")
+    private Integer id_vehicle;
+
 }

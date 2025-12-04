@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserDetailsService {
 
     public UserResponse create(UserRequest request) {
         String role = request.getRole();
-        Role userRole = roleRepository.findByDescription(role).orElseThrow(() -> new NoSuchElementException("Authority not present"));
+        Role userRole = roleRepository.findByRolename(role).orElseThrow(() -> new NoSuchElementException("Authority not present"));
         Set<Role> authorities = new HashSet<>();
         authorities.add(userRole);
         User user = UserMapper.toEntity(request);

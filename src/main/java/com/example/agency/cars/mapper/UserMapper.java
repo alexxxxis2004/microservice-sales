@@ -26,7 +26,7 @@ public final class UserMapper {
 
         return UserResponse.builder()
                 .username(user.getUsername())
-                .role(firstElement.getDescription())
+                .role(firstElement.getRolename())
                 .build();
     }
 

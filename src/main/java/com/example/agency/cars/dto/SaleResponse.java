@@ -20,4 +20,5 @@ public class SaleResponse {
     @JsonProperty ("Sale date")
     private Date saleDate;
     private Double totalAmount;
+    private Integer id_vehicle;
 }

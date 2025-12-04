@@ -7,20 +7,23 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 public class SecurityConfig {
 
-    @Bean
+   @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-
-        http
-                .csrf(csrf -> csrf.disable())           // Desactiva CSRF
-                .authorizeHttpRequests(auth -> auth
-                        .anyRequest().permitAll()       // TODO público
+        http.authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/signin", "/signup", "/api/v1/users").permitAll()
+                        .requestMatchers("/api/v1/customers/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/payment-methods/**").hasRole("ADMIN")
+                        .requestMatchers("/api/v1/sales/**").hasRole("ADMIN")
+                        .anyRequest().authenticated()
                 )
-                .httpBasic(httpBasic -> httpBasic.disable())   // Desactiva Basic Auth
-                .formLogin(form -> form.disable())             // Desactiva el login form
-                .logout(logout -> logout.disable());           // Desactiva logout
+                .httpBasic(withDefaults())
+                .csrf(csrf -> csrf.disable())
+                .logout(logout -> logout.logoutUrl("/logout").permitAll());
 
         return http.build();
     }

@@ -1,11 +1,6 @@
 package com.example.agency.cars.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -40,4 +35,7 @@ public class Sale {
 
     @Column(name = "total_amount", nullable = false)
     private Double totalAmount;
+    
+    @JoinColumn(name = "id_vehicle", nullable = false)
+    private Integer id_vehicle;
 }
